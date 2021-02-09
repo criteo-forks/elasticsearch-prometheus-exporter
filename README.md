@@ -180,6 +180,11 @@ To disable exporting cluster settings use:
 prometheus.cluster.settings: false
 ```
 
+To disable exporting slm stats use:
+```
+prometheus.slm: false
+```
+
 These settings can be also [updated dynamically](https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html).
 
 ## Uninstall

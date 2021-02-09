@@ -92,10 +92,11 @@ public class RestPrometheusMetricsAction extends BaseRestHandler {
                 PrometheusMetricsCollector collector = new PrometheusMetricsCollector(
                         catalog,
                         prometheusSettings.getPrometheusIndices(),
-                        prometheusSettings.getPrometheusClusterSettings());
+                        prometheusSettings.getPrometheusClusterSettings(),
+                        prometheusSettings.getPrometheusSlm());
                 collector.registerMetrics();
                 collector.updateMetrics(response.getClusterHealth(), response.getNodeStats(), response.getIndicesStats(),
-                        response.getClusterStatsData());
+                        response.getClusterStatsData(), response.getSlmStats());
                 return new BytesRestResponse(RestStatus.OK, collector.getCatalog().toTextFormat());
             }
         });
